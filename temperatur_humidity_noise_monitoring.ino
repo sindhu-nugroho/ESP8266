@@ -1,11 +1,36 @@
 /*
-  ESP8266 NodeMCU — DHT11 + Sound Sensor + LCD I2C
-  ─────────────────────────────────────────────────
-  WIRING:
-    DHT11  DATA → D0 (GPIO16) | VCC → 3.3V | GND → GND
-    Sound  AO   → A0          | VCC → 3.3V | GND → GND
-    LCD    SDA  → D2 (GPIO4)  | SCL → D1 (GPIO5)
-           VCC  → 3.3V        | GND → GND
+========================================
+DHT11 Temperature & Humidity Sensor
+========================================
+DATA  -> D0  (GPIO16)  // 1-Wire Data
+VCC   -> 3.3V          // Power Supply
+GND   -> GND           // Ground
+
+NOTE:
+- Pasang resistor pull-up 10kΩ antara DATA dan VCC
+  jika menggunakan modul bare (tanpa PCB).
+
+========================================
+KY-038 / FC-04 Sound Sensor
+========================================
+A0    -> A0   (ADC)    // Analog Sound Value (0–1023)
+D0    -> Not Connected // Tidak dipakai
+VCC   -> 3.3V          // Power Supply
+GND   -> GND           // Ground
+
+NOTE:
+- ESP8266 hanya memiliki 1 pin ADC (A0)
+- Tegangan maksimum ADC ESP8266 adalah 1V
+- Pastikan output AO sensor tidak melebihi 1V
+  atau gunakan voltage divider
+
+========================================
+LCD 16x2 I2C (Address 0x27)
+========================================
+SDA   -> D2  (GPIO4)   // I2C Data
+SCL   -> D1  (GPIO5)   // I2C Clock
+VCC   -> 3.3V          // Power Supply
+GND   -> GND           // Ground
 */
 
 #include <Wire.h>
