@@ -1,4 +1,31 @@
+/*
+========================================
+MFRC522 RFID Reader -> ESP8266 NodeMCU
+========================================
+SDA   -> D8  (GPIO15)  // SPI Chip Select
+SCK   -> D5  (GPIO14)  // SPI Clock
+MOSI  -> D7  (GPIO13)  // SPI Data In
+MISO  -> D6  (GPIO12)  // SPI Data Out
+RST   -> D3  (GPIO0)   // Reset
+IRQ   -> Not Connected
+GND   -> GND           // Ground
+3.3V  -> 3.3V          // Power Supply
 
+========================================
+Servo Motor -> ESP8266 NodeMCU
+========================================
+Signal -> D4  (GPIO2)  // PWM Control
+VCC    -> External 5V  // Jangan dari VIN NodeMCU
+GND    -> GND          // Satukan dengan GND ESP8266
+
+========================================
+LCD 16x2 I2C (Address 0x27)
+========================================
+SDA  -> D2  (GPIO4)  // I2C Data
+SCL  -> D1  (GPIO5)  // I2C Clock
+VCC  -> 3.3V         // Power Supply
+GND  -> GND          // Ground
+*/
 
 #include <MFRC522v2.h>
 #include <MFRC522DriverSPI.h>
